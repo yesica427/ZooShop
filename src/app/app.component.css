@@ -1,0 +1,62 @@
+
+@import url(https://fonts.googleapis.com/css?family=LinotypeAnimalia™);
+
+
+   
+   
+
+#titulo{
+    text-align: center;
+    font: normal 40px 'font-effect-fire', serif; 
+    font-weight: lighter;
+    color: white;
+    
+  
+    margin-bottom: 2em;
+
+}
+
+#contenido{
+    background-color: rgb(255, 255, 255);
+    /* position: relative; */
+   
+    background-position: center center;
+   
+    height: 100vh;
+     width: 59%;
+     /* position: relative; */
+     background-position: center center !important;
+     align-items: center !important;
+     margin-left: 18em;
+   
+
+}
+
+#navbardise{
+    background-color: rgb(117, 177, 64)!important;
+    color:white;
+    width: 50em;
+  
+    
+}
+#fondo{
+ background-size: cover;
+ height: 100vh;
+  width: 100%;
+  position: relative;
+   
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+background-attachment: fixed;
+    background-image: url("https://www.ecestaticos.com/imagestatic/clipping/561/c11/561c11dcc45dc2f64f6b07adf5bd30e2/perros-o-gatos-un-estudio-descubre-que-animal-es-mejor-evolutivamente.jpg?mtime=1439823497");
+}
+
+
+#img{
+
+
+    background-image: url("https://www.guiadelnino.com/var/guiadelnino.com/storage/images/educacion/aprender-a-cuidar-el-planeta/actividades-para-acercar-al-nino-a-los-animales/7606949-8-esl-ES/actividades-para-acercar-al-nino-a-los-animales_w1140.jpg");
+
+
+}

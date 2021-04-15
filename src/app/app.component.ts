@@ -1,5 +1,7 @@
 import { APP_BOOTSTRAP_LISTENER, Component } from '@angular/core';
 import {faPaw} from '@fortawesome/free-solid-svg-icons'
+import{faDog} from '@fortawesome/free-solid-svg-icons'
+import {faCat} from '@fortawesome/free-solid-svg-icons'
 
 
 @Component({
@@ -13,7 +15,8 @@ import {faPaw} from '@fortawesome/free-solid-svg-icons'
    title = 'zooshop';
 
    fapaw=faPaw
-
+   fadog=faDog
+   facat=faCat
 
  }
 

@@ -9,6 +9,8 @@ import { LoginComponent } from './components/login/login.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { SliderComponent } from './components/slider/slider.component';
+import { IndexComponent } from './components/index/index.component';
+import {  ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -17,14 +19,16 @@ import { SliderComponent } from './components/slider/slider.component';
     AppComponent,
     HeaderComponent,
     LoginComponent,
-    SliderComponent
+    SliderComponent,
+    IndexComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
     FontAwesomeModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

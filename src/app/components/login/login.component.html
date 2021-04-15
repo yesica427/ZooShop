@@ -1,26 +1,52 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-</head>
 <body id="fondo-login">
 
-<div>
-    <div class="col col-lg-12">
-            <label>Usuario</label><input type="text" [(ngModel)]="usuario.nombre">
-           
+  <h1 id="titulo"> Z<fa-icon class=" color"[icon]="fapaw"></fa-icon><fa-icon [icon]="fapaw"></fa-icon>Sh<fa-icon class="color" [icon]="fapaw"></fa-icon>p</h1>
+
+<div  style="width: 100%!important ;height: 100% !important;" class="col col-lg-12 ">
+  <form       [formGroup]="formularioiniciosesion">
+  <div id="contenido" class="form-group"   style="margin-bottom: 2em;">
+    <div class="card-header card">
+     <h4><fa-icon [icon]="faalt"></fa-icon>Login</h4> 
+    </div>
+  
+    
+  
+    <div class="col col-lg-12 contenido-login" style="margin-top: 1em;" >
+      
+            <label style="margin-right: 3em;margin-top: 3em;"><h3>user</h3></label><input formControlName="usuario" type="text" >
+            <fa-icon class="col col-1" [icon]="facat"></fa-icon>
 
     </div>
+    <fa-icon class="col col-1" [icon]="fapaw"></fa-icon>
+  
+  <div class="contenido-login"style="margin-top:1em"> <label style="margin-right: 1em;"><h3>Password</h3></label><input type="text" formControlName="contrasenia" 
+><fa-icon class="col col-4" [icon]="fadog"></fa-icon>
+ 
+<div class="estilo-validacion" *ngIf="contrasenia.invalid && (contrasenia.dirty || contrasenia.touched)" class="alert alert-danger" role="alert">
+  verificar que el campo este lleno
+
+  <span class="error" *ngIf="contrasenia.errors.required">Error el campo es Obligatorio</span>
+</div> 
+  
+  </div>
+
+
+</div>
+<div class="col col-12 contenido-login">  <fa-icon class="col col-1" [icon]="fapaw"></fa-icon>
+  <button class="btn btn-outline-success estilo-boton" style="margin-top: 1em;width: 10em;"  (click)="guardar()"  ><fa-icon [icon]="faopen"></fa-icon>save </button>
+
+</div>
+
+<fa-icon class="col col-1" [icon]="fapaw"></fa-icon>
+
+
+
 
   
-  <div> <label>Contrasena</label><input type="text" [(ngModel)]="usuario.contrasenia"></div>
-</div>
-<button (click)="guardar()">save</button>
 
 
-    
-</body>
-</html>
+
+
+
+
+

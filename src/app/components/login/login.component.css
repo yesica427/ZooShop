@@ -45,7 +45,7 @@
     color : #944429;
     transition:5s;
     width: 40em;
-    height: 25em;
+    height: 30em;
     align-items: center;
     margin-left: 19em;
     margin-top: 5em;
@@ -57,12 +57,12 @@
 }
 
 #estilo-boton{
-    background-color: rgb(117, 177, 64)!important;
+    background-color:#944429 !important;
     color: white;
 }
 
 #estilo-boton:hover{
-background-color: #944429!important;
+background-color:rgb(117, 177, 64) !important;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');

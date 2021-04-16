@@ -1,0 +1,65 @@
+<div id="fondo-menu">
+
+    <nav class="navbar navbar-light bg-light  " id="navbardise">
+        <div class="container-fluid width:   ">
+          <form class="d-flex " style="width: 1000%!important;">
+          
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 " style="padding-left: 2em;">
+                <li class="nav-item">
+                    <h1 id="titulo"> Z<fa-icon class=" color"[icon]="fapaw"></fa-icon><fa-icon [icon]="fapaw"></fa-icon>Sh<fa-icon class="color" [icon]="fapaw"></fa-icon>p</h1>
+
+                </li>
+              </ul>
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0 " style="padding-left: 2em;" >
+                <li class="nav-item">
+                    <input class="form-control me-2" style="margin-left: 5em; width:20;" type="search" placeholder="Search" aria-label="Search">
+                    
+                </li>
+                
+              </ul>
+              <ul class="navbar-nav me-auto mb-3 mb-lg-0 col col col-lg-4 " style="padding-left: 2em;margin-left: 3em;">
+                <li class="nav-item">
+                    <button class="btn btn-outline-success" >Buscar</button>
+                </li>
+              </ul>
+    
+          </form>
+        </div>
+    </nav>
+<app-slider></app-slider>
+<div class="container">
+
+<div class="row">
+<div class="col col-lg-6" style="margin-left: 20em;margin-top: 4em;">
+<h4>Categorias </h4><select><option>Seleccione una categoria</option></select>
+
+</div>
+
+
+<div class="col col-lg-6" style="margin-left: 20em;">
+    <h4>Precio</h4><select><option>seleccione precio</option></select></div>
+
+</div>
+
+
+
+
+
+</div>
+
+<!-- categorias card dogs  -->
+<div class="container">
+    <div class="row" >
+<div  class="card col col-lg-3 estilo-card" *ngFor="let categoria of categoriasDogs" style=" margin-top:2em;width: 18rem;margin-left: 3em;">
+    <img src="{{categoria.url}}" class="card-img-top" style=" height: 50%;" alt="...">
+    <div class="card-body" style="text-align: center;">
+      <h5 class="card-title">{{categoria.nombre}}</h5>
+      <p class="card-text">{{categoria.Descripcion}}</p>
+      <p>{{categoria.precio}}</p>
+      <button id="estilo-buy" class="btn btn-primary"> <fa-icon [icon]="fashopping"></fa-icon>BUY</button>
+    </div>
+  </div>
+
+    </div>
+</div>
+</div>

@@ -1,9 +1,9 @@
-<ngb-carousel style="width: 100%;" >
+<ngb-carousel class="carousel-inner" >
     <ng-template  *ngFor="let imagen of imagenes" ngbSlide>
-       <div class="picsum-img-wrapper">
-        <img src="{{imagen.url}}"alt="Random first slide" height="250%" width="100%">
+       <div class="picsum-img-wrapper " style="">
+        <img  class="card-img-top" src="{{imagen.url}}"alt="Random first slide" >
       </div> 
-      <div class="carousel-caption">
+      <div class="carousel-caption ">
         <h3>{{imagen.name}}</h3>
         <p>{{imagen.description}}</p>
       </div>

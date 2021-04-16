@@ -31,8 +31,8 @@ export class LoginComponent implements OnInit {
 
 
   formularioiniciosesion = new FormGroup({
-    usuario: new FormControl ('',[Validators.required,Validators.maxLength(8)]),
-    contrasenia: new FormControl ('',[Validators.required,Validators.maxLength(8)])
+    usuario: new FormControl ('',[Validators.required,Validators.pattern(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)]),
+    contrasenia: new FormControl ('',[Validators.required,Validators.minLength(8),Validators.pattern(/^(?=\D*\d)(?=[^a-z]*[a-z])(?=[^A-Z]*[A-Z]).{8,12}$/)])
   });
 
 

@@ -11,6 +11,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { SliderComponent } from './components/slider/slider.component';
 import { IndexComponent } from './components/index/index.component';
 import {  ReactiveFormsModule } from '@angular/forms';
+import { MenuComponent } from './components/menu/menu.component';
 
 
 
@@ -20,7 +21,8 @@ import {  ReactiveFormsModule } from '@angular/forms';
     HeaderComponent,
     LoginComponent,
     SliderComponent,
-    IndexComponent
+    IndexComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,

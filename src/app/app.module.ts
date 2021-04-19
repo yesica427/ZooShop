@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {FormsModule} from '@angular/forms'
+import {HttpClientModule} from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +13,7 @@ import { SliderComponent } from './components/slider/slider.component';
 import { IndexComponent } from './components/index/index.component';
 import {  ReactiveFormsModule } from '@angular/forms';
 import { MenuComponent } from './components/menu/menu.component';
+import { RegistroComponent } from './components/registro/registro.component';
 
 
 
@@ -22,7 +24,8 @@ import { MenuComponent } from './components/menu/menu.component';
     LoginComponent,
     SliderComponent,
     IndexComponent,
-    MenuComponent
+    MenuComponent,
+    RegistroComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +33,8 @@ import { MenuComponent } from './components/menu/menu.component';
     NgbModule,
     FontAwesomeModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {faPaw} from '@fortawesome/free-solid-svg-icons'
 import { faShoppingBasket} from '@fortawesome/free-solid-svg-icons'
+import {HttpClient}  from '@angular/common/http'
 
 
 @Component({
@@ -59,7 +60,7 @@ categoriasDogs:any[]=[
   
   ];
 
-  constructor() { }
+  constructor( private httpClient:HttpClient) { }
 
 
 

@@ -14,8 +14,25 @@ export class MenuComponent implements OnInit {
   fapaw=faPaw;
   fashopping=faShoppingBasket;
 
+ seleccionCategoria="";
 
+  productos:any=[];
+    producto:any ={
+      nombre:'',
+      categoria:'',
+      fk_idcategoria:'',
+      url:'',
+      descripcion:''
   
+    }
+
+
+    categorias:any={
+      idcategoria:'',
+      nombrecategoria:'',
+      descripcion:''
+    }
+
 categoriasDogs:any[]=[
   {
   nombre:"Ball",
@@ -60,11 +77,64 @@ categoriasDogs:any[]=[
   
   ];
 
-  constructor( private httpClient:HttpClient) { }
 
+
+  
+  constructor( private httpclient:HttpClient) { }
+
+ 
 
 
   ngOnInit(): void {
+    
+    this.obtenerCategorias();
+    this.obtenerProductos();
+
   }
 
+  
+
+
+  obtenerProductos(){
+  
+
+   
+   this.httpclient.get('http://localhost:8888/productos')
+   .subscribe(res=>{
+  
+    
+    this.productos=res;
+    console.log(this.productos);
+   });
+  
+  
+  }
+
+
+//obtener categorias
+
+obtenerCategorias(){
+this.httpclient.get('http://localhost:8888/categorias')
+   .subscribe(res=>{
+  
+    
+    this.categorias=res;
+    console.log(this.categorias);
+    
+   });
+
+
+  }
+ 
+  
+
+
+
+
+
+
 }
+
+
+
+

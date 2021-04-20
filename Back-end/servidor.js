@@ -1,6 +1,17 @@
 var express= require('express');
 var bodyParser= require('body-parser');
+var cors=require('cors');
 
+
+
+
+var app =express();
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:true}))
+
+
+app.use(cors());
 
 
 //conexion
@@ -25,13 +36,9 @@ const pool = new Pool()
 
 
 
-var app =express();
 
 
 
-
- app.use(bodyParser.json());
- app.use(bodyParser.urlencoded({extended:true}))
 
 
 
@@ -75,13 +82,73 @@ app.get('/usuarios',function(req,res){
         }
         catch(error){
             console.log(error);
+            throw new Error(err.message)
 
         }
     }
 
   getUsuarios()
 })
+
+
+//Agregar usuario por id
+
+ app.post('/crearusuario',function(req,res){
+
+
+     const pool = new Pool(config);
+
+
+    const postCrearUsuario=async()=>{
+
+        try{
+            const {nombre,idusuario,correo,contrasenia} = req.body;
+            console.log(req.body.nombre)
+             const response = await pool.query('INSERT INTO usuarios (nombre,correo,contrasenia) VALUES ($1,$2,$3) ',[nombre,correo,contrasenia] )
+           
+            console.log(response);
+    res.json({
+     message:'registro exitoso',
+     body:{
+         usuario:{
+            nombre,idusuario,correo,contrasenia}
+       
+          }
+        })
+
+        }
+        catch(error){
+            console.log(error);
+            
+
+        }
+
+        
+         
+   
+                
+               
+    
+            
+        }
+
+      postCrearUsuario();
+
+
+
+ });
+
+
+
+
+
+
+
+
+
+
 //obtener categorias
+
 
 
 app.get('/categorias',function(req,res){
@@ -101,7 +168,7 @@ app.get('/categorias',function(req,res){
     }
 
   getCategorias()
-})
+});
 
 
 
@@ -131,7 +198,7 @@ res.json({
     }
 
   postCompras()
-})
+});
 
 
 

@@ -30,8 +30,10 @@
 <div class="container">
 
 <div class="row">
-<div class="col col-lg-6" style="margin-left: 20em;margin-top: 4em;">
-<h4>Categorias </h4><select><option>Seleccione una categoria</option></select>
+<div class="col col-lg-12" style="margin-left: 20em;margin-top: 4em;">
+<h4>Categorias </h4><select   style="width: 10em;" ><option *ngFor="let categoria of categorias"  value="{{categoria.nombrecategoria}}">{{categoria.nombrecategoria}}</option>
+
+</select>
 
 </div>
 
@@ -50,13 +52,13 @@
 <!-- categorias card dogs  -->
 <div class="container">
     <div class="row" >
-<div  class="card col col-lg-3 estilo-card" *ngFor="let categoria of categoriasDogs" style=" margin-top:2em;width: 18rem;margin-left: 3em;">
-    <img src="{{categoria.url}}" class="card-img-top" style=" height: 50%;" alt="...">
+<div  class="card col col-lg-3 estilo-card" *ngFor="let producto of productos" style=" margin-top:2em;width: 18rem;margin-left: 3em;">
+    <img src="{{producto.url}}" class="card-img-top" style=" height: 50%;" alt="...">
     <div class="card-body" style="text-align: center;">
-      <h5 class="card-title">{{categoria.nombre}}</h5>
-      <p class="card-text">{{categoria.Descripcion}}</p>
-      <p>{{categoria.precio}}</p>
-      <button id="estilo-buy" class="btn btn-primary"> <fa-icon [icon]="fashopping"></fa-icon>BUY</button>
+      <h5 class="card-title">{{producto.nombre}}</h5>
+      <p class="card-text">{{producto.descripcion}}</p>
+      <p>{{producto.precio}}</p>
+      <button id="estilo-buy" class="btn btn-primary" > <fa-icon [icon]="fashopping"></fa-icon>BUY</button>
     </div>
   </div>
 

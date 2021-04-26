@@ -13,8 +13,9 @@ export class MenuComponent implements OnInit {
 
   fapaw=faPaw;
   fashopping=faShoppingBasket;
+  valorCategoria:any="";
 
- seleccionCategoria="";
+  seleccionado:number=0;
 
   productos:any=[];
     producto:any ={
@@ -24,7 +25,23 @@ export class MenuComponent implements OnInit {
       url:'',
       descripcion:''
   
+
+
     }
+
+    
+
+
+    productobyid:any ={
+      nombre:'',
+      categoria:'',
+      fk_idcategoria:'',
+      url:'',
+      descripcion:''
+  
+    }
+
+
 
 
     categorias:any={
@@ -86,7 +103,8 @@ categoriasDogs:any[]=[
 
 
   ngOnInit(): void {
-    
+    this.categorias
+   this.seleccionado=4;
     this.obtenerCategorias();
     this.obtenerProductos();
 
@@ -117,19 +135,39 @@ obtenerCategorias(){
 this.httpclient.get('http://localhost:8888/categorias')
    .subscribe(res=>{
   
-    
     this.categorias=res;
+    
+  
+  
     console.log(this.categorias);
+    
     
    });
 
 
   }
  
+
+
+
+ obtenerproductosid(){
+
+   this.valorCategoria = (<HTMLSelectElement>(
+    document.getElementById("select-categoria")
+  )).value;
+  console.log(this.valorCategoria);
+
+  this.httpclient.get(`http://localhost:8888/productos/${this.valorCategoria}`)
+    .subscribe(res=>{
   
+     
 
-
-
+     this.productobyid=res;
+     console.log(this.productobyid);
+    
+    
+    });
+}
 
 
 

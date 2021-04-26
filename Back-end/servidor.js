@@ -69,6 +69,31 @@ app.get('/productos',function(req,res){
 });
 
 
+
+//obtenerusuariobyId
+app.get('/productos/:id',function(req,res){
+
+ 
+     
+    const pool = new Pool(config);
+    
+     const getproductosbyid= async()=>{
+         try{
+    const resu =await pool.query('select * from productos where fk_idcategoria=$1  ',[req.params.id]);
+    console.log(resu.rows);
+    res.send(resu.rows);
+ 
+}
+ 
+  catch(error){
+      console.log(error);
+  }
+     }
+getproductosbyid()
+});
+
+
+
 //obtener usuarios
 app.get('/usuarios',function(req,res){
  

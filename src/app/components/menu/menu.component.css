@@ -35,3 +35,17 @@
 
     border-bottom-right-radius: rgb(117, 177, 64);
 }
+
+.estilo-modal-header{
+    background-color:rgb(117, 177, 64) ;
+
+}
+
+.estiloboton{
+    background-color: #944429;
+    color: white;
+}
+
+.modal{
+
+}

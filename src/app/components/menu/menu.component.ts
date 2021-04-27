@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {faPaw} from '@fortawesome/free-solid-svg-icons'
 import { faShoppingBasket} from '@fortawesome/free-solid-svg-icons'
-import {HttpClient}  from '@angular/common/http'
-
+import { faCartArrowDown} from '@fortawesome/free-solid-svg-icons'
+import {HttpClient}  from '@angular/common/http';
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import {FormControl,FormGroup,Validators} from  '@angular/forms'
 
 @Component({
   selector: 'app-menu',
@@ -10,13 +12,15 @@ import {HttpClient}  from '@angular/common/http'
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
+  [x: string]: any;
 
   fapaw=faPaw;
   fashopping=faShoppingBasket;
+  faout=faCartArrowDown;
   valorCategoria:any="";
 
   seleccionado:number=0;
-
+  produId:any=""
   productos:any=[];
     producto:any ={
       nombre:'',
@@ -29,7 +33,15 @@ export class MenuComponent implements OnInit {
 
     }
 
-    
+    productoId:any=[]
+productiId:any={
+  nombre:'',
+  categoria:'',
+  fk_idcategoria:'',
+  url:'',
+  descripcion:''
+
+}
 
 
     productobyid:any ={
@@ -94,12 +106,15 @@ categoriasDogs:any[]=[
   
   ];
 
-
+  closeResult = '';
+ 
 
   
-  constructor( private httpclient:HttpClient) { }
+  constructor( private httpclient:HttpClient,private modalService: NgbModal) { }
+  formid = new FormGroup({
+    idproducto: new FormControl('',Validators.required),
 
- 
+  })
 
 
   ngOnInit(): void {
@@ -108,9 +123,55 @@ categoriasDogs:any[]=[
     this.obtenerCategorias();
     this.obtenerProductos();
 
+  
+
+  }
+
+  get obteneridproducto(){
+    return this.formid.get('idproducto');
   }
 
   
+
+  open(content:any,id:number) {
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+
+    //  this.produId = (<HTMLSelectElement>(
+    //     document.getElementById("select-idproducto")
+    //   )).value;
+     
+     console.log(id);
+   
+    this.httpclient.get(`http://localhost:8888/productosid/${id}`)
+      .subscribe(res=>{
+    
+       
+  
+       this.productoId=res;
+       console.log(this.productoId);
+      
+      
+      });
+  
+  
+
+
+  }
+
+
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return `with: ${reason}`;
+    }
+  }
 
 
   obtenerProductos(){
@@ -169,6 +230,30 @@ this.httpclient.get('http://localhost:8888/categorias')
     });
 }
 
+
+obtenerIdproducto(){
+
+  
+}
+
+
+
+
+
+compraProductos(){
+  
+  // console.log(this.formularioregistro.value);
+  // this.httpclient.post('http://localhost:8888/crearcompra',this.formularioregistro.value)
+  // .subscribe(res=>{
+ 
+  //  console.log(res);
+  // });
+ 
+ 
+ //}
+
+
+}
 
 
 }

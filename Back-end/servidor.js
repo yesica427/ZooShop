@@ -70,7 +70,7 @@ app.get('/productos',function(req,res){
 
 
 
-//obtenerusuariobyId
+//obtener productos por categoria
 app.get('/productos/:id',function(req,res){
 
  
@@ -92,6 +92,28 @@ app.get('/productos/:id',function(req,res){
 getproductosbyid()
 });
 
+
+//obtener productos por ID
+app.get('/productosid/:id',function(req,res){
+
+ 
+     
+    const pool = new Pool(config);
+    
+     const getProductosId= async()=>{
+         try{
+    const resu =await pool.query('select * from productos where id_producto=$1  ',[req.params.id]);
+    console.log(resu.rows);
+    res.send(resu.rows);
+ 
+} 
+ 
+  catch(error){
+      console.log(error);
+  }
+     }
+     getProductosId()
+});
 
 
 //obtener usuarios
@@ -206,7 +228,7 @@ app.post('/crearcompra',function(req,res){
     const postCompras=async()=>{
         
            const {id_compra,descripcion,fk_idusuario,fk_idproducto} = req.body;
-            const response = await pool.query('INSERT INTO compras (id_compra,descripcion,fk_idusuario,fk_idproducto) VALUES ($1,$2,$3,$4) ',[id_compra,descripcion,fk_idusuario,fk_idproducto] )
+            const response = await pool.query('INSERT INTO compras (descripcion,fk_idusuario,fk_idproducto) VALUES ($1,$2,$3)',[descripcion,fk_idusuario,fk_idproducto] )
            console.log(response);
 res.json({
     message:'compra exitosa',
@@ -257,3 +279,6 @@ app.get('/compras',function(req,res){
 app.listen(8888,function(){
     console.log("servidor levantado")
 });
+
+
+//crearcompra

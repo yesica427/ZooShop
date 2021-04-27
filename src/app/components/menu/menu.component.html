@@ -31,10 +31,12 @@
 
 <div class="row">
 <div class="col col-lg-12" style="margin-left: 20em;margin-top: 4em;">
-<h4>Categorias </h4><select id="select-categoria"  style="width: 10em;"    (change)="obtenerproductosid()"  ><option *ngFor="let categoria of categorias; "     value="{{categoria.id_categoria}}">{{categoria.nombrecategoria}}
+<h4>Categorias </h4><select id="select-categoria"  style="width: 10em;"    (change)="obtenerproductosid()"  >
+  <option>Seleccione la categoria</option>
+  <option *ngFor="let categoria of categorias; "     value="{{categoria.id_categoria}}">{{categoria.nombrecategoria}}
 
 </option>
- <H1> selected value is {{seleccionado}}</H1>
+
 </select>
 
 
@@ -61,10 +63,72 @@
       <h5 class="card-title">{{producto.nombre}}</h5>
       <p class="card-text">{{producto.descripcion}}</p>
       <p>{{producto.precio}}</p>
-      <button id="estilo-buy" class="btn btn-primary" > <fa-icon [icon]="fashopping"></fa-icon>BUY</button>
+
+      <button id="estilo-buy" class="btn btn-primary" (click)="open(content,producto.id_producto)" > <fa-icon [icon]="fashopping"></fa-icon>BUY</button>
     </div>
   </div>
 
     </div>
+
+
+
+<!--modal-->
+
+<ng-template #content let-modal  style="align-items: center;">
+  <div class="modal-header estilo-modal-header" >
+    <h4 style="color: white;" ><fa-icon [icon]="fapaw"></fa-icon>ZOOSHOP<fa-icon [icon]="fapaw"></fa-icon></h4>
+    
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form >
+      <div class="form-group col col-lg-12" style="align-items: center;" *ngFor="let pro of productoId;  ">
+        <div class="container">
+          <div class="row" style="align-items: center;text-align: center;" >
+           <div class="col col-lg-12" ><h3 ><label>Producto:</label>{{pro.nombre}}</h3></div>
+           <div class="col col-lg-12"  ><img src="{{pro.url}}" class="card-img-top" style=" height: 50%;" alt="..."></div>
+
+          </div>
+          <div class="col col-lg-12" style="align-items: center;text-align: center;"><h4> <label>Precio:$</label>{{pro.precio}}</h4></div>
+          <div class="col col-lg-12" style="align-items: center;text-align: center;">   <h4 ><label>Descripcion:</label>{{pro.descripcion}}</h4></div>
+        </div>
+        
+        <div class="input-group">
+         
+       
+
+
+          <div class="input-group-append">
+           
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer estilo-modal-header">
+    <button type="button" class="btn btn-outline-dark estiloboton" (click)="modal.close('Save click')"> <fa-icon [icon]="faout"></fa-icon>Save</button>
+  </div>
+</ng-template>
+<!-- 
+<button class="btn btn-lg btn-outline-primary" (click)="open(content)">Launch demo modal</button> -->
+
+<hr>
+
+<pre>{{ closeResult }}</pre>
+
+
+
+
+
+
+
+<!--finaliza-->
+
+
+
+
+
 </div>
 </div>

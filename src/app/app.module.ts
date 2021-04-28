@@ -14,6 +14,7 @@ import { IndexComponent } from './components/index/index.component';
 import {  ReactiveFormsModule } from '@angular/forms';
 import { MenuComponent } from './components/menu/menu.component';
 import { RegistroComponent } from './components/registro/registro.component';
+import { DetallescompraComponent } from './components/detallescompra/detallescompra.component';
 
 
 
@@ -25,7 +26,8 @@ import { RegistroComponent } from './components/registro/registro.component';
     SliderComponent,
     IndexComponent,
     MenuComponent,
-    RegistroComponent
+    RegistroComponent,
+    DetallescompraComponent
   ],
   imports: [
     BrowserModule,

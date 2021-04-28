@@ -5,6 +5,10 @@ import{faCat} from '@fortawesome/free-solid-svg-icons'
 import{faLockOpen} from '@fortawesome/free-solid-svg-icons'
 import { faSignInAlt} from '@fortawesome/free-solid-svg-icons'
 import {FormControl,FormGroup,Validators} from  '@angular/forms'
+import {Router} from '@angular/router'
+
+import {HttpClient, JsonpClientBackend}  from '@angular/common/http';
+
 
 
 @Component({
@@ -19,15 +23,19 @@ export class LoginComponent implements OnInit {
   faopen=faLockOpen;
   faalt=faSignInAlt;
 
-  // usuario:any={
-  //   nombre:'',
-  // contrasenia:''};
+  // usuarios:any=[];
+
+   usuarios:any={
+     nombre:'',
+       correo:'',
+   contrasenia:''
+  };
 
 
-  // usuarios:any=[]
+  
 
 
-  constructor() { }
+  constructor(private httpclient:HttpClient, private router:Router) { }
 
 
   formularioiniciosesion = new FormGroup({
@@ -55,16 +63,41 @@ export class LoginComponent implements OnInit {
 
 
  guardar() {
-//     this.usuarios.push({
-// nombre:this.usuario.nombre,
-// contrasenia:this.usuario.contrasenia
-
-   //})
  
-    console.log(this.formularioiniciosesion.value);
+ console.log(this.formularioiniciosesion.value);
+this.httpclient.post(`http://localhost:8888/login`,this.formularioiniciosesion.value)
+  .subscribe(res=>{
+  
+    
+  //  this.usuarios=res;
+  console.log(res);
+ 
 
+  
+  var resJson = JSON.parse(JSON.stringify(res));
+  if(resJson.codigo==1){
+    console.log("correo correcto")
+    localStorage.setItem('idUsuarioActual', JSON.stringify(resJson.body.usuario.id_usuario));
+    this.router.navigateByUrl('/menu');
+
+
+  }
+  else if(resJson.codigo==0){
+    console.log(resJson.message)
+
+  }
+  else {console.log(resJson.message)}
+  });
+  
+
+
+
+    
 
      }
+
+
+
 
 
     

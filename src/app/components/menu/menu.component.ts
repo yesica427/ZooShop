@@ -5,6 +5,9 @@ import { faCartArrowDown} from '@fortawesome/free-solid-svg-icons'
 import {HttpClient}  from '@angular/common/http';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import {FormControl,FormGroup,Validators} from  '@angular/forms'
+import {LoginService} from 'src/app/services/login.service';
+import { resetFakeAsyncZone } from '@angular/core/testing';
+import {Router} from '@angular/router'
 
 @Component({
   selector: 'app-menu',
@@ -107,10 +110,11 @@ categoriasDogs:any[]=[
   ];
 
   closeResult = '';
+  
  
 
   
-  constructor( private httpclient:HttpClient,private modalService: NgbModal) { }
+  constructor( private httpclient:HttpClient,private modalService: NgbModal, private loginService:LoginService,private router:Router) { }
   formid = new FormGroup({
     idproducto: new FormControl('',Validators.required),
 
@@ -122,6 +126,7 @@ categoriasDogs:any[]=[
    this.seleccionado=4;
     this.obtenerCategorias();
     this.obtenerProductos();
+this.loginService.validarUsuarioActual();
 
   
 
@@ -237,6 +242,24 @@ obtenerIdproducto(){
 }
 
 
+guardarCompras(id_producto:any,descripcion:string){
+  this.httpclient.post( 'http://localhost:8888/anadircompra',{
+
+ fk_idproducto:id_producto,
+ descripcion:descripcion,
+ fk_idusuario:this.loginService.obtenerUsuarioActual()
+
+ 
+
+  }).subscribe(res=>{
+    
+      console.log(res);
+       this.router.navigateByUrl('/detallescompra');
+      
+     });
+  
+  
+    }
 
 
 

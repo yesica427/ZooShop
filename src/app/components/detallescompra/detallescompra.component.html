@@ -1,22 +1,20 @@
 
-<table class="table table-striped">
-    <thead>
+<h3>Thank you for choosing us ,we are always waiting for you!</h3>
+
+<table class="table col-lg-4" style=" margin-top: 3em; margin-left: 10em; text-align: center;">
+  <thead>
     <tr>
-      <th scope="col"></th>
-      <th scope="col"></th>
-      <th scope="col"></th>
-      <th scope="col"></th>
+      <th scope="col">Producto</th>
+      <th scope="col">Descripcion</th>
+      <!-- <th scope="col">Last</th>
+      <th scope="col">Handle</th> -->
     </tr>
-    </thead>
-    <tbody>
-    <tr >
-      <th scope="row"></th>
-      <td>
-        <img [src]="" class="mr-2" style="width: 20px">
-       
-      </td>
-      <td></td>
-      <td></td>
+  </thead>
+  <tbody>
+    <tr *ngFor="let lista of listaCompras">
+      <th scope="row">{{lista.fk_idproducto}}</th>
+      <td>{{lista.descripcion}}</td>
+     
     </tr>
-    </tbody>
-  </table>
+  </tbody>
+</table>

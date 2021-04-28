@@ -8,24 +8,32 @@ import {HttpClient}  from '@angular/common/http';
   styleUrls: ['./detallescompra.component.css']
 })
 export class DetallescompraComponent implements OnInit {
+  
+
+  listaCompras:any ={
+    descripcion:'',
+    usuario:'',
+    producto:''
+
+  }
 
   constructor(private loginService:LoginService, private httpclient:HttpClient) { }
 
   ngOnInit(): void {
-    this.loginService.validarUsuarioActual;
+    this.loginService.validarUsuarioActual();
+    this.verCompras();
   }
 
 
   verCompras(){
-    this.httpclient.post( 'http://localhost:8888/detallescompras',{
-  
-   
-   fk_idusuario:this.loginService.obtenerUsuarioActual()
-  
+    console.log("de detalle compras");
+    var  usuario=this.loginService.obtenerUsuarioActual()
+    this.httpclient.get( `http://localhost:8888/detallescompras/${usuario}`
    
   
-    }).subscribe(res=>{
+    ).subscribe(res=>{
       
+      this.listaCompras=res
         console.log(res);
       
         

@@ -26,7 +26,7 @@
     </div>
     <fa-icon class="col col-1" [icon]="fapaw"></fa-icon>
   
-  <div class="contenido-login"style="margin-top:1em"> <label style="margin-right: 1em;"><h3>Password</h3></label><input type="text" formControlName="contrasenia" 
+  <div class="contenido-login"style="margin-top:1em"> <label class="colorletra" style="margin-right: 1em;"><h3>Password</h3></label><input type="text" formControlName="contrasenia" 
 ><fa-icon class="col col-4" [icon]="fadog"></fa-icon>
  
 <div style="margin-left: 16em;width: 13em;align-items: center;text-align: center;" class="estilo-validacion" *ngIf="contrasenia.invalid && (contrasenia.dirty || contrasenia.touched)" class="alert alert-danger" role="alert">

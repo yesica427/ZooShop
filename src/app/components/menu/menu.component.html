@@ -33,8 +33,8 @@
   <div class="container">
 
     <div class="row">
-      <div class="col col-lg-12" style="margin-left: 20em;margin-top: 4em;">
-        <h4>Categorias </h4><select id="select-categoria" style="width: 10em;" (change)="obtenerproductosid()">
+      <div class="col col-lg-12" style="margin-left: 10em;margin-top: 4em;">
+        <h4 class="titulo2">Categorias </h4><select id="select-categoria" style="width: 15em;" (change)="obtenerproductosid()">
           <option>Seleccione la categoria</option>
           <option *ngFor="let categoria of categorias; " value="{{categoria.id_categoria}}">
             {{categoria.nombrecategoria}}
@@ -48,9 +48,7 @@
 
 
       <div class="col col-lg-6" style="margin-left: 20em;">
-        <h4>Precio</h4><select>
-          <option>seleccione precio</option>
-        </select>
+        
       </div>
 
     </div>

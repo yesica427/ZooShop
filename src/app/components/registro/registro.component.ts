@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {FormControl,FormGroup,Validators} from  '@angular/forms'
+import {faPaw} from '@fortawesome/free-solid-svg-icons'
+import {faUser} from '@fortawesome/free-solid-svg-icons'
+import {faLock} from '@fortawesome/free-solid-svg-icons'
+import {faEnvelope} from '@fortawesome/free-solid-svg-icons'
 
 @Component({
   selector: 'app-registro',
@@ -10,8 +14,10 @@ import {FormControl,FormGroup,Validators} from  '@angular/forms'
 export class RegistroComponent implements OnInit {
 
   constructor(private httpclient:HttpClient) { }
-
-
+faenvelope=faEnvelope;
+fapaw=faPaw;
+fauser=faUser;
+falock=faLock;
   formularioregistro = new FormGroup({
     nombre: new FormControl('',Validators.required),
     correo: new FormControl ('',[Validators.required,Validators.pattern(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)]),

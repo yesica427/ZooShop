@@ -10,7 +10,7 @@ export class LoginService {
   constructor(private http: HttpClient, private router:Router) { }
 
 
-  urlBackend='http://localhost:8888';
+  urlBackend='https://api-zooshop.herokuapp.com';
 
  listausuarios:any=[]
 

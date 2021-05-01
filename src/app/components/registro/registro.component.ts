@@ -45,7 +45,7 @@ guardarUsuario(){
   
 
   console.log(this.formularioregistro.value);
- this.httpclient.post('http://localhost:8888/crearusuario',this.formularioregistro.value)
+ this.httpclient.post('https://api-zooshop.herokuapp.com/crearusuario',this.formularioregistro.value)
  .subscribe(res=>{
 
   console.log(res);

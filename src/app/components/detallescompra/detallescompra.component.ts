@@ -31,7 +31,7 @@ export class DetallescompraComponent implements OnInit {
   verCompras(){
     console.log("de detalle compras");
     var  usuario=this.loginService.obtenerUsuarioActual()
-    this.httpclient.get( `http://localhost:8888/detallescompras/${usuario}`
+    this.httpclient.get( `https://api-zooshop.herokuapp.com/detallescompras/${usuario}`
    
   
     ).subscribe(res=>{

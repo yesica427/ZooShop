@@ -118,7 +118,10 @@ categoriasDogs:any[]=[
   formid = new FormGroup({
     idproducto: new FormControl('',Validators.required),
 
+
   })
+  modalReference = null;
+
 
 
   ngOnInit(): void {
@@ -151,7 +154,7 @@ this.loginService.validarUsuarioActual();
      
      console.log(id);
    
-    this.httpclient.get(`http://localhost:8888/productosid/${id}`)
+    this.httpclient.get(`https://api-zooshop.herokuapp.com/productosid/${id}`)
       .subscribe(res=>{
     
        
@@ -183,7 +186,7 @@ this.loginService.validarUsuarioActual();
   
 
    
-   this.httpclient.get('http://localhost:8888/productos')
+   this.httpclient.get('https://api-zooshop.herokuapp.com/productos')
    .subscribe(res=>{
   
     
@@ -198,7 +201,7 @@ this.loginService.validarUsuarioActual();
 //obtener categorias
 
 obtenerCategorias(){
-this.httpclient.get('http://localhost:8888/categorias')
+this.httpclient.get('https://api-zooshop.herokuapp.com/categorias')
    .subscribe(res=>{
   
     this.categorias=res;
@@ -223,7 +226,7 @@ this.httpclient.get('http://localhost:8888/categorias')
   )).value;
   console.log(this.valorCategoria);
 
-  this.httpclient.get(`http://localhost:8888/productos/${this.valorCategoria}`)
+  this.httpclient.get(`https://api-zooshop.herokuapp.com/productos/${this.valorCategoria}`)
     .subscribe(res=>{
   
      
@@ -243,7 +246,7 @@ obtenerIdproducto(){
 
 
 guardarCompras(id_producto:any,descripcion:string){
-  this.httpclient.post( 'http://localhost:8888/anadircompra',{
+  this.httpclient.post( 'https://api-zooshop.herokuapp.com/anadircompra',{
 
  fk_idproducto:id_producto,
  descripcion:descripcion,
@@ -254,7 +257,10 @@ guardarCompras(id_producto:any,descripcion:string){
   }).subscribe(res=>{
     
       console.log(res);
+     
        this.router.navigateByUrl('/detallescompra');
+       
+
       
      });
   

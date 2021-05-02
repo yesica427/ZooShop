@@ -59,7 +59,7 @@
 
             </div>
            
-            <button id="estiloboton" class="btn btn-lg " (click)=guardarUsuario() routerLink="/login">Guardar</button>
+            <button [disabled]="!formularioregistro.valid" id="estiloboton" class="btn btn-lg "  (click)=guardarUsuario() routerLink="/login">Guardar</button>
           </form>
 
 
